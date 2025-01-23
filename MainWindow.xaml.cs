@@ -28,6 +28,8 @@ namespace Restaurant_gestion
         public string Place { get; set; }
         public string XXX { get; set; }
 
+        List<Stocks> stocks = new();
+
         public ObservableCollection<Person> People { get; set; }
 
         public MainWindow()
@@ -112,6 +114,7 @@ namespace Restaurant_gestion
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
+                    // Restaurant :
                     if (line.Contains("Restaurant :"))
                     {
                         lineRestaurent = true;
@@ -134,8 +137,23 @@ namespace Restaurant_gestion
 
                     if (lineRestaurent && lineName && linePlace && lineXXX)
                     {
-                        restaurantName.Content = Name;
-                        restaurantPlace.Content = Place;
+                        StackPanel stackPanel = new StackPanel();
+
+                        TextBlock textBlock1 = new TextBlock() { Text = Name, FontSize = 24 };
+                        TextBlock textBlock2 = new TextBlock() { Text = Place, FontSize = 12 };
+
+                        stackPanel.Children.Add(textBlock1);
+                        stackPanel.Children.Add(textBlock2);
+
+                        nom_restaurant.Content = stackPanel;
+                    }
+
+                    if (line.Contains("Stock"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
+                        string name = parts[1];
+                        string poids = parts[2];
+                        stocks.Add(new Stocks { Nom = name, QuantitePoids = poids });
                     }
                 }
             }
@@ -149,15 +167,24 @@ namespace Restaurant_gestion
 
         private void etendu_stocks(object sender, RoutedEventArgs e)
         {
+            ScrollViewer scrollViewer = new();
+            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             StackPanel stackPanel = new StackPanel();
 
-            TextBlock textBlock1 = new() { Text = "Étendu des stocks : ", FontSize = 24, Padding = new Thickness(10)};
-            TextBlock textBlock2 = new() { Text = "1) Viande Haché - 4kg\n2) Blanc de poulet - 5kg\n3) Poivrons - 500g", Padding = new Thickness(10,0,0,0) };
+            TextBlock textBlock = new() { Text = "Étendu des stocks : ", FontSize = 24, Padding = new Thickness(10) };
 
-            stackPanel.Children.Add(textBlock1);
-            stackPanel.Children.Add(textBlock2);
+            stackPanel.Children.Add(textBlock);
 
-            etendu_stocks_control.Content = stackPanel;
+            foreach (Stocks stock in stocks)
+            {
+                string text = stock.Nom + " - " + stock.QuantitePoids;
+                TextBlock textBlockStocks = new() { Text = text, Padding = new Thickness(10, 0, 0, 0) };
+                stackPanel.Children.Add(textBlockStocks);
+            }
+
+            scrollViewer.Content = stackPanel;
+
+            etendu_stocks_control.Content = scrollViewer;
         }
 
         

@@ -10,7 +10,7 @@ namespace Restaurant_gestion
     {
         public string Nom { get; set; }
         public string? Description { get; set; }
-        public double QuantitePoids { get; set; }
+        public string QuantitePoids { get; set; }
         public string Emplacement { get; set; }
     }
 }
