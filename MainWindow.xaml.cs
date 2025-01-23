@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -26,6 +27,8 @@ namespace Restaurant_gestion
         public string Name { get; set; }
         public string Place { get; set; }
         public string XXX { get; set; }
+
+        public ObservableCollection<Person> People { get; set; }
 
         public MainWindow()
         {
@@ -200,6 +203,38 @@ namespace Restaurant_gestion
             stackPanel.Children.Add(textBlock6);
             stackPanel.Children.Add(textBlock7);
 
+            scrollViewer.Content = stackPanel;
+
+            etendu_stocks_control.Content = scrollViewer;
+        }
+
+        private void liste_employes(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer scrollViewer = new();
+            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            StackPanel stackPanel = new StackPanel();
+
+            TextBlock textBlock1 = new() { Text = "Liste des employés : ", FontSize = 24, Padding = new Thickness(10) };
+
+            People = new ObservableCollection<Person>
+            {
+                new Person {Nom = "Alice", Prenom = "Bob", Poste = "Cuisinière"},
+                new Person {Nom = "Achille", Prenom = "Gollay", Poste = "Serveur"},
+                new Person {Nom = "Mafille", Prenom = "Quentin", Poste = "Femme de ménage"},
+            };
+
+            DataGrid dataGrid = new DataGrid
+            {
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                AutoGenerateColumns = true,
+                ItemsSource = People
+            };
+
+
+            stackPanel.Children.Add(textBlock1);
+            stackPanel.Children.Add(dataGrid);
+            
             scrollViewer.Content = stackPanel;
 
             etendu_stocks_control.Content = scrollViewer;
