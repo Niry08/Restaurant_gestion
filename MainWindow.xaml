@@ -31,7 +31,7 @@
                 <MenuItem Header="Ouvrir un fichier" FontSize="12" Click="open_restaurant" />
                 <MenuItem Header="Enregistrer" FontSize="12"/>
                 <MenuItem Header="Enregistrer sous" FontSize="12"/>
-                <MenuItem Header="Supprimer restaurent" FontSize="12"/>
+                <MenuItem Header="Supprimer restaurant" FontSize="12"/>
             </MenuItem>
             <MenuItem Header="Commandes">
                 <MenuItem Header="Ajouter une commande" FontSize="12"/>

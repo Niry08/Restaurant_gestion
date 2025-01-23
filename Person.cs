@@ -15,5 +15,6 @@ namespace Restaurant_gestion
         public string Email { get; set; }
         public string DateNaissance { get; set; }
         public string Poste { get; set; }
+        public double Salaire { get; set; }
     }
 }
