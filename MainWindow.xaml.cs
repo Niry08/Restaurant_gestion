@@ -145,7 +145,7 @@ namespace Restaurant_gestion
                         stackPanel.Children.Add(textBlock1);
                         stackPanel.Children.Add(textBlock2);
 
-                        nom_restaurant.Content = stackPanel;
+                        data.Content = stackPanel;
                     }
 
                     if (line.Contains("Stock"))
@@ -161,8 +161,8 @@ namespace Restaurant_gestion
 
         public void open_restaurant_automatically(string name, string place, string xxx)
         {
-            restaurantName.Content = name;
-            restaurantPlace.Content = place;
+            data.Content = name;
+            data.Content = place;
         }
 
         private void etendu_stocks(object sender, RoutedEventArgs e)
@@ -184,7 +184,7 @@ namespace Restaurant_gestion
 
             scrollViewer.Content = stackPanel;
 
-            etendu_stocks_control.Content = scrollViewer;
+            data.Content = scrollViewer;
         }
 
         
@@ -201,7 +201,7 @@ namespace Restaurant_gestion
             stackPanel.Children.Add(textBlock2);
             stackPanel.Children.Add(textBlock3);
 
-            etendu_stocks_control.Content = stackPanel;
+            data.Content = stackPanel;
         }
 
         private void finances(object sender, RoutedEventArgs e)
@@ -232,7 +232,7 @@ namespace Restaurant_gestion
 
             scrollViewer.Content = stackPanel;
 
-            etendu_stocks_control.Content = scrollViewer;
+            data.Content = scrollViewer;
         }
 
         private void liste_employes(object sender, RoutedEventArgs e)
@@ -264,7 +264,7 @@ namespace Restaurant_gestion
             
             scrollViewer.Content = stackPanel;
 
-            etendu_stocks_control.Content = scrollViewer;
+            data.Content = scrollViewer;
         }
     }
 }

@@ -55,10 +55,6 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <ContentControl x:Name="nom_restaurant" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"></ContentControl>
-        <Label x:Name="restaurantName" Content="" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="restaurantPlace" Content="" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="10" Margin="0,0,15,0"/>
-
-        <ContentControl x:Name="etendu_stocks_control" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="5"></ContentControl>
+        <ContentControl x:Name="data" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="5"></ContentControl>
     </Grid>
 </Window>
