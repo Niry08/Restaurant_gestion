@@ -11,7 +11,7 @@ namespace Restaurant_gestion
         public string Nom { get; set; }
         public string? Description { get; set; }
         public string Magasin { get; set; }
-        public double Prix { get; set; }
+        public string Prix { get; set; }
 
         public string QuantiteNbre { get; set; }
     }

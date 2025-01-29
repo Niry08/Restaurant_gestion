@@ -1,0 +1,83 @@
+Restaurant : 
+	Name : a
+	Emplacement : a
+	XXX : a	
+	
+	Stock : Viande Haché - 4kg
+	Stock : Blanc de poulet - 5kg
+	Stock : Poivrons - 500g
+	Stock : Pommes de Terre - 2kg
+	Stock : Tomates - 1kg
+	Stock : Oignons - 1kg
+	Stock : Carottes - 1kg
+	Stock : Courgettes - 1kg
+	Stock : Aubergines - 1kg
+	Stock : Brocolis - 500g
+	Stock : Salade verte - 1 tête
+	Stock : Ail - 2 têtes
+	Stock : Riz basmati - 1kg
+	Stock : Pâtes - 1kg
+	Stock : Lait - 2L
+	Stock : Fromage râpé - 500g
+	Stock : Crème fraîche - 500g
+	Stock : Haricots verts - 500g
+	Stock : Saumon - 1kg
+	Stock : Yaourts nature - 8 unités
+	Stock : Graines de chia - 1kg
+	Stock : noisettes - 3kg
+	Stock : framboises - 500g
+		
+
+	Nourriture : Thon - 15kg - 600CHF
+	Nourriture : Viande Hachée - 4kg - 24 CHF
+	Nourriture : Blanc de Poulet - 5kg - 40 CHF
+	Nourriture : Poivrons - 500g - 4 CHF
+	Nourriture : Pommes de Terre - 2kg - 3 CHF
+	Nourriture : Tomates - 1kg - 5 CHF
+	Nourriture : Oignons - 1kg - 2 CHF
+	Nourriture : Carottes - 1kg - 2 CHF
+	Nourriture : Courgettes - 1kg - 3 CHF
+	Nourriture : Aubergines - 1kg - 4 CHF
+	Nourriture : Brocolis - 500g - 3 CHF
+	Nourriture : Salade verte - 1 tête - 2 CHF
+	Fourniture : Poêle - 45CHF
+	Fourniture : Louche - 5CHF
+		
+	Dépense : Nourriture - 560CHF
+	Dépense : Employés - 15000CHF
+	Dépense : Infrastructure - 3600CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Revenus du mois : 560CHF
+	Total :  18900CHF
+	Brut : 5600CHF	
+	
+	Employés : Nom : Hofstetter	Prénom : Ethan	Adresse : sdfdsffsf	Telephone : 0568965623	Email : easfdfs.afdf@gmail.com	DateNaissance : 26.3.2021	Poste : cuisinier	Salaire : 5600

@@ -29,6 +29,10 @@ namespace Restaurant_gestion
         public string XXX { get; set; }
 
         List<Stocks> stocks = new();
+        List<Nourriture> nourritures = new();
+        List<Fourniture> fournitures = new();
+        List<Depense> depenses = new();
+        List<Person> persons = new();
 
         public ObservableCollection<Person> People { get; set; }
 
@@ -139,8 +143,8 @@ namespace Restaurant_gestion
                     {
                         StackPanel stackPanel = new StackPanel();
 
-                        TextBlock textBlock1 = new TextBlock() { Text = Name, FontSize = 24 };
-                        TextBlock textBlock2 = new TextBlock() { Text = Place, FontSize = 12 };
+                        TextBlock textBlock1 = new TextBlock() { Text = Name, FontSize = 24, HorizontalAlignment = HorizontalAlignment.Center };
+                        TextBlock textBlock2 = new TextBlock() { Text = Place, FontSize = 12, HorizontalAlignment = HorizontalAlignment.Right, Padding= new Thickness(0,0,20,0) };
 
                         stackPanel.Children.Add(textBlock1);
                         stackPanel.Children.Add(textBlock2);
@@ -148,12 +152,47 @@ namespace Restaurant_gestion
                         data.Content = stackPanel;
                     }
 
-                    if (line.Contains("Stock"))
+                    if (line.Contains("Stock : "))
                     {
                         string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
                         string name = parts[1];
                         string poids = parts[2];
                         stocks.Add(new Stocks { Nom = name, QuantitePoids = poids });
+                    }
+                    if (line.Contains("Nourriture :"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
+                        string name = parts[1];
+                        string poids = parts[2];
+                        string prix = parts[3];
+                        nourritures.Add(new Nourriture { Nom = name, QuantitePoids = poids, Prix = prix });
+                    }
+                    if (line.Contains("Fourniture :"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
+                        string name = parts[1];
+                        string prix = parts[2];
+                        fournitures.Add(new Fourniture { Nom = name, Prix = prix });
+                    }
+                    if (line.Contains("Dépense :"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
+                        string name = parts[1];
+                        string prix = parts[2];
+                        depenses.Add(new Depense { Nom = name, Prix = prix });
+                    }
+                    if (line.Contains("Employés :"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", "\t" }, StringSplitOptions.None);
+                        string name = parts[3];
+                        string prenom = parts[5];
+                        string adresse = parts[7];
+                        string telephone = parts[9];
+                        string email = parts[11];
+                        string dateNaissance = parts[13];
+                        string poste = parts[15];
+                        string salaire = parts[17];
+                        persons.Add(new Person { Nom = name, Prenom = prenom, Adresse = adresse, Telephone = telephone, Email = email, DateNaissance = dateNaissance, Poste = poste, Salaire = double.Parse(salaire) });
                     }
                 }
             }
@@ -194,12 +233,27 @@ namespace Restaurant_gestion
             StackPanel stackPanel = new StackPanel();
 
             TextBlock textBlock1 = new() { Text = "Achats : ", FontSize = 24, Padding = new Thickness(10) };
-            TextBlock textBlock2 = new() { Text = "Nourriture :", FontSize = 15, Padding = new Thickness(10, 0, 0, 2) };
-            TextBlock textBlock3 = new() { Text = "- 15 kg Riz - 50CHF\n- 4kg Tomates - 20CHF\n- 6 kg Steak Cheval - 90CHF", Padding = new Thickness(18, 0, 0, 0) };
+            TextBlock textBlock2 = new() { Text = "Nourriture :", FontSize = 18, FontWeight= FontWeights.Bold, Padding = new Thickness(10, 0, 0, 5) };
 
             stackPanel.Children.Add(textBlock1);
             stackPanel.Children.Add(textBlock2);
+
+            foreach (Nourriture nourriture in nourritures)
+            {
+                string text = nourriture.Nom + " - " + nourriture.Prix + " - " + nourriture.QuantitePoids;
+                TextBlock textBlockStocks = new() { Text = text, Padding = new Thickness(10, 0, 0, 0) };
+                stackPanel.Children.Add(textBlockStocks);
+            }
+
+            TextBlock textBlock3 = new() { Text = "Fournitures :", FontSize = 18, FontWeight= FontWeights.Bold, Padding = new Thickness(10, 20, 0, 5) };
             stackPanel.Children.Add(textBlock3);
+
+            foreach (Fourniture fourniture in fournitures)
+            {
+                string text = fourniture.Nom + " - " + fourniture.Prix;
+                TextBlock textBlockStocks = new() { Text = text, Padding = new Thickness(10, 0, 0, 0) };
+                stackPanel.Children.Add(textBlockStocks);
+            }
 
             data.Content = stackPanel;
         }
@@ -243,19 +297,13 @@ namespace Restaurant_gestion
 
             TextBlock textBlock1 = new() { Text = "Liste des employés : ", FontSize = 24, Padding = new Thickness(10) };
 
-            People = new ObservableCollection<Person>
-            {
-                new Person {Nom = "Alice", Prenom = "Bob", Poste = "Cuisinière"},
-                new Person {Nom = "Achille", Prenom = "Gollay", Poste = "Serveur"},
-                new Person {Nom = "Mafille", Prenom = "Quentin", Poste = "Femme de ménage"},
-            };
 
             DataGrid dataGrid = new DataGrid
             {
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Stretch,
                 AutoGenerateColumns = true,
-                ItemsSource = People
+                ItemsSource = persons
             };
 
 
