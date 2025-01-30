@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Restaurant_gestion
 {
-    public class Depense
+    public class Revenus
     {
-        public string Nom { get; set; }
-        public string Prix { get; set; }
+        public double Revenu { get; set; }
         public DateTime date { get; set; }
     }
 }

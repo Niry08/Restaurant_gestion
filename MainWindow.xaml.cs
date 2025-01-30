@@ -33,6 +33,7 @@ namespace Restaurant_gestion
         List<Fourniture> fournitures = new();
         List<Depense> depenses = new();
         List<Person> persons = new();
+        List<Revenus> revenus = new();
 
         public ObservableCollection<Person> People { get; set; }
 
@@ -174,13 +175,6 @@ namespace Restaurant_gestion
                         string prix = parts[2];
                         fournitures.Add(new Fourniture { Nom = name, Prix = prix });
                     }
-                    if (line.Contains("Dépense :"))
-                    {
-                        string[] parts = line.Split(new string[] { " : ", " - " }, StringSplitOptions.None);
-                        string name = parts[1];
-                        string prix = parts[2];
-                        depenses.Add(new Depense { Nom = name, Prix = prix });
-                    }
                     if (line.Contains("Employés :"))
                     {
                         string[] parts = line.Split(new string[] { " : ", "\t" }, StringSplitOptions.None);
@@ -193,6 +187,20 @@ namespace Restaurant_gestion
                         string poste = parts[15];
                         string salaire = parts[17];
                         persons.Add(new Person { Nom = name, Prenom = prenom, Adresse = adresse, Telephone = telephone, Email = email, DateNaissance = dateNaissance, Poste = poste, Salaire = double.Parse(salaire) });
+                    }
+                    if (line.Contains("Dépense :")) {
+                        string[] parts = line.Split(new string[] { " : ", "-" }, StringSplitOptions.None);
+                        string date = parts[1];
+                        string name = parts[2];
+                        string prix = parts[3];
+                        depenses.Add(new Depense { date = DateTime.Parse(date), Nom = name, Prix = prix });
+                    }
+                    if (line.Contains("Revenus du mois :"))
+                    {
+                        string[] parts = line.Split(new string[] { " : ", "-" }, StringSplitOptions.None);
+                        string date = parts[1];
+                        string valeur = parts[2];
+                        revenus.Add(new Revenus { date = DateTime.Parse(date), Revenu = double.Parse(valeur) });
                     }
                 }
             }
@@ -224,12 +232,11 @@ namespace Restaurant_gestion
             scrollViewer.Content = stackPanel;
 
             data.Content = scrollViewer;
-        }
-
-        
+        }        
 
         private void achats(object sender, RoutedEventArgs e)
         {
+            ScrollViewer scrollViewer = new();
             StackPanel stackPanel = new StackPanel();
 
             TextBlock textBlock1 = new() { Text = "Achats : ", FontSize = 24, Padding = new Thickness(10) };
@@ -255,7 +262,8 @@ namespace Restaurant_gestion
                 stackPanel.Children.Add(textBlockStocks);
             }
 
-            data.Content = stackPanel;
+            scrollViewer.Content = stackPanel;
+            data.Content = scrollViewer;
         }
 
         private void finances(object sender, RoutedEventArgs e)
@@ -264,23 +272,45 @@ namespace Restaurant_gestion
             scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             StackPanel stackPanel = new StackPanel();
 
+            List<DateTime> dates = new();
+            double total = 0.0;
+
+            foreach (Revenus r in revenus)
+            {
+                dates.Add(r.date);
+                dates.Sort();
+            }
+
             TextBlock textBlock1 = new() { Text = "Finances : ", FontSize = 24, Padding = new Thickness(10) };
             TextBlock textBlock2 = new() { Text = "Dépenses du mois :", FontSize = 15, Padding = new Thickness(10, 0, 0, 2) };
-            TextBlock textBlock3 = new() { Text = "- Nourriture : 560CHF\n- Employés : 15'000CHF\n- Infrastructure : 3'600CHF", Padding = new Thickness(18, 0, 0, 0) };
-
-            TextBlock textBlock4 = new() { Text = "Revenus du mois :", FontSize = 15, Padding = new Thickness(10, 25, 0, 0) };
-            TextBlock textBlock5 = new() { Text = "- 01.01.2025 : 560CHF\n- 02.01.2025 : 570CHF\n- 03.01.2025 : 360CHF\n- 04.01.2025 : 560CHF\n- 05.01.2025 : 560CHF\n- 06.01.2025 : 560CHF\n- 07.01.2025 : 560CHF\n- 08.01.2025 : 560CHF\n- 09.01.2025 : 560CHF\n- 10.01.2025 : 560CHF\n- 11.01.2025 : 560CHF\n- 12.01.2025 : 560CHF\n- 13.01.2025 : 560CHF\n- 14.01.2025 : 560CHF\n- 15.01.2025 : 560CHF\n- 16.01.2025 : 560CHF\n- 17.01.2025 : 560CHF\n- 18.01.2025 : 560CHF\n- 19.01.2025 : 560CHF\n", Padding = new Thickness(18, 2, 0, 0) };
-
-            TextBlock textBlock6 = new() { Text = "Total :", FontSize = 15, Padding = new Thickness(10, 25, 0, 0)};
-            TextBlock textBlock7 = new() { Text = "5678CHF", Padding = new Thickness(18,0, 0, 10) };
-
-
-
             stackPanel.Children.Add(textBlock1);
             stackPanel.Children.Add(textBlock2);
-            stackPanel.Children.Add(textBlock3);
+
+            foreach (Depense d in depenses)
+            {
+                TextBlock textBlock = new() { Text = d.Nom + " : " + d.Prix + "CHF" + " --> " + d.date.ToString("d"), Padding = new Thickness(18, 0, 0, 0) };
+                stackPanel.Children.Add(textBlock);
+            }
+
+            TextBlock textBlock4 = new() { Text = "Revenus du mois :", FontSize = 15, Padding = new Thickness(10, 25, 0, 0) };
             stackPanel.Children.Add(textBlock4);
-            stackPanel.Children.Add(textBlock5);
+
+            foreach (DateTime d in dates)
+            {
+                foreach (Revenus r in revenus)
+                {
+                    if (r.date == d)
+                    {
+                        TextBlock textBlock = new() { Text = "- " + d.ToString("d") + " : " + r.Revenu + "CHF", Padding = new Thickness(18, 0, 0, 0) };
+                        stackPanel.Children.Add(textBlock);
+                        total += r.Revenu;
+                    }
+                }
+            }
+
+            TextBlock textBlock6 = new() { Text = "Total :", FontSize = 15, Padding = new Thickness(10, 25, 0, 0)};
+            TextBlock textBlock7 = new() { Text = total.ToString() + "CHF", Padding = new Thickness(18,0, 0, 10) };
+
             stackPanel.Children.Add(textBlock6);
             stackPanel.Children.Add(textBlock7);
 

@@ -39,45 +39,60 @@ Restaurant :
 	Nourriture : Courgettes - 1kg - 3 CHF
 	Nourriture : Aubergines - 1kg - 4 CHF
 	Nourriture : Brocolis - 500g - 3 CHF
+	Nourriture : Thon - 15kg - 600CHF
+	Nourriture : Viande Hachée - 4kg - 24 CHF
+	Nourriture : Blanc de Poulet - 5kg - 40 CHF
+	Nourriture : Poivrons - 500g - 4 CHF
+	Nourriture : Pommes de Terre - 2kg - 3 CHF
+	Nourriture : Tomates - 1kg - 5 CHF
+	Nourriture : Oignons - 1kg - 2 CHF
+	Nourriture : Carottes - 1kg - 2 CHF
+	Nourriture : Courgettes - 1kg - 3 CHF
+	Nourriture : Aubergines - 1kg - 4 CHF
+	Nourriture : Brocolis - 500g - 3 CHF
 	Nourriture : Salade verte - 1 tête - 2 CHF
 	Fourniture : Poêle - 45CHF
 	Fourniture : Louche - 5CHF
+	Fourniture : Poêle - 45CHF
+	Fourniture : Louche - 5CHF
+	Fourniture : Poêle - 45CHF
+	Fourniture : Louche - 5CHF
+	Fourniture : Poêle - 45CHF
+	Fourniture : Louche - 5CHF
+	Fourniture : Poêle - 45CHF
+	Fourniture : Louche - 5CHF
 		
-	Dépense : Nourriture - 560CHF
-	Dépense : Employés - 15000CHF
-	Dépense : Infrastructure - 3600CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Revenus du mois : 560CHF
-	Total :  18900CHF
-	Brut : 5600CHF	
+	Dépense : 01.02.2024 - Nourriture - 560
+	Dépense : 01.02.2024 - Employés - 15000
+	Dépense : 01.02.2024 - Infrastructure - 3600
+	Revenus du mois : 01.02.2024 - 560
+	Revenus du mois : 02.02.2024 - 560
+	Revenus du mois : 03.02.2024 - 560
+	Revenus du mois : 04.02.2024 - 560
+	Revenus du mois : 05.02.2024 - 560
+	Revenus du mois : 06.02.2024 - 560
+	Revenus du mois : 07.02.2024 - 560
+	Revenus du mois : 08.02.2024 - 560
+	Revenus du mois : 09.02.2024 - 560
+	Revenus du mois : 10.02.2024 - 560
+	Revenus du mois : 11.02.2024 - 560
+	Revenus du mois : 12.02.2024 - 560
+	Revenus du mois : 16.02.2024 - 560
+	Revenus du mois : 14.02.2024 - 560
+	Revenus du mois : 15.02.2024 - 560
+	Revenus du mois : 13.02.2024 - 560
+	Revenus du mois : 17.02.2024 - 560
+	Revenus du mois : 18.02.2024 - 560
+	Revenus du mois : 19.02.2024 - 560
+	Revenus du mois : 20.02.2024 - 560
+	Revenus du mois : 21.02.2024 - 560
+	Revenus du mois : 22.02.2024 - 560
+	Revenus du mois : 23.02.2024 - 560
+	Revenus du mois : 24.02.2024 - 560
+	Revenus du mois : 25.02.2024 - 560
+	Revenus du mois : 26.02.2024 - 560
+	Revenus du mois : 27.02.2024 - 560
+	Revenus du mois : 28.02.2024 - 560
+	Revenus du mois : 29.02.2024 - 560
 	
 	Employés : Nom : Hofstetter	Prénom : Ethan	Adresse : sdfdsffsf	Telephone : 0568965623	Email : easfdfs.afdf@gmail.com	DateNaissance : 26.3.2021	Poste : cuisinier	Salaire : 5600

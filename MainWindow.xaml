@@ -45,7 +45,6 @@
             </MenuItem>
             <MenuItem Header="Employés">
                 <MenuItem Header="Liste des employés" FontSize="12" Click="liste_employes"/>
-                <MenuItem Header="Salaires" FontSize="12"/>
             </MenuItem>
         </Menu>
 
