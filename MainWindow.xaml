@@ -29,14 +29,13 @@
             <MenuItem Header="Accueil">
                 <MenuItem Header="Créer un restaurent" FontSize="12" Click="create_restaurent"/>
                 <MenuItem Header="Ouvrir un fichier" FontSize="12" Click="open_restaurant" />
-                <MenuItem Header="Enregistrer" FontSize="12"/>
-                <MenuItem Header="Enregistrer sous" FontSize="12"/>
+                <!--<MenuItem Header="Enregistrer" FontSize="12"/>
+                <MenuItem Header="Enregistrer sous" FontSize="12"/>-->
                 <MenuItem Header="Supprimer restaurant" FontSize="12"/>
             </MenuItem>
             <MenuItem Header="Commandes">
-                <MenuItem Header="Ajouter une commande" FontSize="12"/>
-                <MenuItem Header="Supprimer une commande" FontSize="12"/>
-                <MenuItem Header="Modifier une commande" FontSize="12"/>
+                <MenuItem Header="Ajouter une commande" FontSize="12" Click="addCommande"/>
+                <MenuItem Header="Lister les commandes" FontSize="12" Click="commandesListe"/>
             </MenuItem>
             <MenuItem Header="Stocks">
                 <MenuItem Header="Étendu des stocks" FontSize="12" Click="etendu_stocks"/>

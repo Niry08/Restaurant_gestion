@@ -15,18 +15,14 @@ using System.Windows.Shapes;
 
 namespace Restaurant_gestion
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        //public string path { get; set; } = "C:\\Users\\" + Environment.UserName + "\\Documents";
         public string path { get; set; } = "C:\\Users\\" + Environment.UserName + "\\Documents\\Restaurant_gestion";
         public string filePath { get; set; } = "C:\\Users\\" + Environment.UserName + "\\Documents\\Restaurant_gestion\\restaurant.txt";
 
         public string Name { get; set; }
         public string Place { get; set; }
-        public string XXX { get; set; }
+        public string Type { get; set; }
 
         List<Stocks> stocks = new();
         List<Nourriture> nourritures = new();
@@ -34,6 +30,7 @@ namespace Restaurant_gestion
         List<Depense> depenses = new();
         List<Person> persons = new();
         List<Revenus> revenus = new();
+        List<Commandes> commandes = new();
 
         public ObservableCollection<Person> People { get; set; }
 
@@ -112,7 +109,7 @@ namespace Restaurant_gestion
             bool lineRestaurent = false;
             bool lineName = false;
             bool linePlace = false;
-            bool lineXXX = false;
+            bool lineType = false;
 
             using (StreamReader sr = new StreamReader(fileChoice()))
             {
@@ -134,13 +131,13 @@ namespace Restaurant_gestion
                         linePlace = true;
                         Place = line.Split(":")[1];
                     }
-                    if (line.Contains("XXX :"))
+                    if (line.Contains("Type :"))
                     {
-                        lineXXX = true;
-                        XXX = line.Split(":")[1];
+                        lineType = true;
+                        Type = line.Split(":")[1];
                     }
 
-                    if (lineRestaurent && lineName && linePlace && lineXXX)
+                    if (lineRestaurent && lineName && linePlace && lineType)
                     {
                         StackPanel stackPanel = new StackPanel();
 
@@ -343,6 +340,53 @@ namespace Restaurant_gestion
             scrollViewer.Content = stackPanel;
 
             data.Content = scrollViewer;
+        }
+
+        private void commandesListe(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer scrollViewer = new();
+            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            StackPanel stackPanel = new StackPanel();
+
+            TextBlock textBlock1 = new() { Text = "Liste des commandes : ", FontSize = 24, Padding = new Thickness(10) };
+
+
+            DataGrid dataGrid = new DataGrid
+            {
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                AutoGenerateColumns = true,
+                ItemsSource = commandes
+            };
+
+            stackPanel.Children.Add(textBlock1);
+            stackPanel.Children.Add(dataGrid);
+
+            scrollViewer.Content = stackPanel;
+
+            data.Content = scrollViewer;
+        }
+
+        private void addCommande(object sender, RoutedEventArgs e)
+        {
+            Pop_Up_addCommande popUpNewCommande = new Pop_Up_addCommande();
+
+            bool? result = popUpNewCommande.ShowDialog();
+
+            if (result == true)
+            {
+                string date = popUpNewCommande.Date;
+                string heure = popUpNewCommande.Heure;
+                string plat = popUpNewCommande.Plat;
+                int table = popUpNewCommande.Table;
+                int quantite = popUpNewCommande.Quantite;
+                string type = popUpNewCommande.Type;
+                string specification = popUpNewCommande.Specification;
+
+                commandes.Add(new Commandes { Date = date, Heure = heure, Plat = plat, Table = table, Quantite = quantite, Type = type, Specification = specification });
+            
+                commandesListe(sender, e);
+            }
         }
     }
 }
