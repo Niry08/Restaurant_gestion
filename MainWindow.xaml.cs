@@ -388,5 +388,36 @@ namespace Restaurant_gestion
                 commandesListe(sender, e);
             }
         }
+
+        private void enregistrer_sous(object sender, RoutedEventArgs e)
+        {
+            string fichierSource = filePath;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Enregistrer sous",
+                Filter = "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string fichierDestination = saveFileDialog.FileName;
+
+                try
+                {
+                    File.Copy(fichierSource, fichierDestination, true); // Copie avec remplacement si besoin
+                    Console.WriteLine("Fichier enregistré sous : " + fichierDestination);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erreur : " + ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Erreur : Aucun fichier sélectionné");
+            }
+
+        }
     }
 }

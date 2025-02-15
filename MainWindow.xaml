@@ -1,11 +1,11 @@
-<Window x:Class="Restaurant_gestion.MainWindow"
+<Window x:Name="Main" x:Class="Restaurant_gestion.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_gestion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FoodFlow" Height="450" Width="800" Icon="/img/icon/dinner.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
@@ -29,8 +29,8 @@
             <MenuItem Header="Accueil">
                 <MenuItem Header="Créer un restaurent" FontSize="12" Click="create_restaurent"/>
                 <MenuItem Header="Ouvrir un fichier" FontSize="12" Click="open_restaurant" />
-                <!--<MenuItem Header="Enregistrer" FontSize="12"/>
-                <MenuItem Header="Enregistrer sous" FontSize="12"/>-->
+                <!--<MenuItem Header="Enregistrer" FontSize="12"/>-->
+                <MenuItem Header="Enregistrer sous" FontSize="12" Click="enregistrer_sous"/>
                 <MenuItem Header="Supprimer restaurant" FontSize="12"/>
             </MenuItem>
             <MenuItem Header="Commandes">
@@ -53,6 +53,8 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <ContentControl x:Name="data" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="5"></ContentControl>
+        <ContentControl x:Name="data" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="5">
+            <Label Content="Bienvenue sur FoodFlow" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+        </ContentControl>
     </Grid>
 </Window>

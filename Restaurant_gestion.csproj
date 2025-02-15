@@ -9,11 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\icon\dinner.png" />
     <None Remove="img\icon\exit.ico" />
     <None Remove="img\icon\exit.png" />
+    <None Remove="img\icon\restaurant.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="img\icon\dinner.png" />
     <Resource Include="img\icon\exit.ico" />
   </ItemGroup>
 
