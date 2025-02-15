@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_gestion
 {
-    public class Fourniture : Achats
+    public class Fourniture
     {
         public string Nom { get; set; }
         public string? Description { get; set; }
